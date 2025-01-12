@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #191919;
     --foreground: #ededed;
   }
 }
@@ -19,3 +19,31 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom popup width */
+.swal2-popup.custom-popup {
+  width:auto; /* Default width for larger screens */
+}
+
+/* Make the popup responsive for smaller screens */
+@media (max-width: 768px) {
+  .swal2-popup.custom-popup {
+      width: 90%; /* Adjust the width to 90% for tablets and small devices */
+  }
+}
+
+/* For very small screens, set a smaller width */
+@media (max-width: 480px) {
+  .swal2-popup.custom-popup {
+      width: 100%; /* Full width on very small screens */
+      margin: 0; /* Remove default margin */
+  }
+  .location{
+    flex-direction: column;
+  }
+  .place{
+    display: flex;
+    gap: 50px;    
+  }
+}
+
