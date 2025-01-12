@@ -15,7 +15,7 @@ function Header() {
 
     // Automatically open the popup on page load
     useEffect(() => {
-        setOpenPopup(true);
+        setOpenPopup(false);
     }, []);
 
     // Function to open the popup manually when clicking on the location
@@ -24,7 +24,7 @@ function Header() {
     };
 
     return (
-        <div className="w-full md:w-full flex justify-between">
+        <div className=" flex items-center justify-between p-4">
             <div>
                 <a href="/booking">
                     <Image
@@ -37,8 +37,9 @@ function Header() {
                     />
                 </a>
             </div>
-            <div className="text-white flex space-x-2 items-center">
-                <SearchInput />
+            
+            <div className="text-white flex space-x-4 items-center ">
+                
                 <div className="text-white ml-4">
                     {selectedLocation ? (
                         <span onClick={openLocationPopup} style={{ cursor: 'pointer' }}>
@@ -48,14 +49,17 @@ function Header() {
                         <button onClick={openLocationPopup}>Select Location</button> 
                     )}
                 </div>
-            </div>
-
-            {/* Show the LocationPopup */}
-            <LocationPopup 
-                onSelectLocation={handleLocationSelect} 
-                selectedLocation={selectedLocation}
-                openPopup={openPopup} 
-            />
+                <div>
+                <LocationPopup 
+                    onSelectLocation={handleLocationSelect} 
+                    selectedLocation={selectedLocation}
+                    openPopup={openPopup} 
+                />
+                </div>
+                <div>
+                    <SearchInput />
+                </div>
+            </div> 
         </div>
     );
 }

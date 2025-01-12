@@ -11,7 +11,7 @@ const options = {
 
 export async function fetchMovies() {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`, options);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=1`, options);
 
     if (!response.ok) {
       throw new Error('Failed to fetch movies');

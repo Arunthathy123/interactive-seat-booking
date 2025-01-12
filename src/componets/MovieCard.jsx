@@ -1,9 +1,14 @@
-
 export default function MovieCard({ movie }) {
+  const posterUrl = `https://image.tmdb.org/t/p/w400${movie.poster_path}`;
+  const releaseDate = movie.release_date ? new Date(movie.release_date).toLocaleDateString() : 'N/A'; // Format the release date
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-white rounded-lg shadow-md p-4">
-      <img src={movie.image} alt={movie.title} className="rounded-md" />
-      <h3 className="text-lg font-bold mt-2">{movie.title}</h3>
+    <div className="gap-8 bg-[transparent] rounded-lg shadow-md">
+      <img src={posterUrl} alt={movie.title} className="rounded-md h-96 w-full" />
+      <div>
+        <p className="text-sm text-gray-400 px-4 mt-6">Release Date: {releaseDate}</p> 
+        <h3 className="text-lg font-bold  text-gray-200 py-2 px-4 ">{movie.title}</h3>
+      </div>
     </div>
   );
 }
