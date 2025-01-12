@@ -13,8 +13,6 @@ export default function Button({ text, onClick, type, className = '' }) {
     </button>
   );
 }
-
-// PropTypes for validation
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
