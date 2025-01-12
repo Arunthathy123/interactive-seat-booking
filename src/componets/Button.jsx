@@ -1,11 +1,13 @@
+'use client';
+
 import PropTypes from 'prop-types';
 
-export default function Button({ text, onClick, type = 'button', className = '' }) {
+export default function Button({ text, onClick, type, className = '' }) {
   return (
     <button
-      type={type}
+      type={type || 'button'}
       onClick={onClick}
-      className={` transition-all ${className}`}
+      className={`transition-all ${className}`}
     >
       {text}
     </button>
