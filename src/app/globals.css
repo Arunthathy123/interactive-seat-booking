@@ -20,23 +20,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Custom popup width */
 .swal2-popup.custom-popup {
-  width:auto; /* Default width for larger screens */
+  width:auto; 
 }
 
-/* Make the popup responsive for smaller screens */
+
 @media (max-width: 768px) {
   .swal2-popup.custom-popup {
-      width: 90%; /* Adjust the width to 90% for tablets and small devices */
+      width: 90%; 
   }
 }
 
-/* For very small screens, set a smaller width */
 @media (max-width: 480px) {
   .swal2-popup.custom-popup {
-      width: 100%; /* Full width on very small screens */
-      margin: 0; /* Remove default margin */
+      width: 100%; 
+      margin: 0;
   }
   .location{
     flex-direction: column;
@@ -45,5 +43,24 @@ body {
     display: flex;
     gap: 50px;    
   }
+}
+
+
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #4a5568 #2d3748;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  height: 2px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-radius: 50px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background-color: #2d3748;
 }
 

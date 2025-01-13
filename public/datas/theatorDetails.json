@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "name": "Cineplex 1",
+      "location": "Downtown",
+      "showtimes": ["12:30 PM", "3:30 PM", "6:30 PM", "9:30 PM"]
+    },
+    {
+      "id": 2,
+      "name": "Cineplex 2",
+      "location": "Uptown",
+      "showtimes": ["1:00 PM", "4:00 PM", "7:00 PM", "10:00 PM"]
+    }
+  ]
+  

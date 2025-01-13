@@ -2,9 +2,13 @@
 import Button from '@/componets/Button';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import MovieAllDetails from '@/componets/MovieAllDetails';
+// import TheaterList from '@/componets/TheaterList';
+
 
 const MovieDetails = () => {
-  const { id } = useParams(); // Getting the dynamic id parameter
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -33,39 +37,40 @@ const MovieDetails = () => {
   }
 
   const bannerUrl = movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '';
-  const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '';
+  const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : '';
 
   return (
     <div className="relative">
-        {/* Image with 100vh height, object-fit: cover to prevent stretching */}
-        {bannerUrl && (
-            <img
-            src={bannerUrl}
-            alt={movie.title}
-            className="absolute top-0 left-0 w-full h-full lg:h-[70vh] object-cover"
-            />
-        )}
-        {/* Black overlay with opacity */}
-        <div className="absolute top-0 left-0 w-full  h-full lg:h-[70vh] bg-black opacity-80" />
+      {bannerUrl && (
+        <img
+          src={bannerUrl}
+          alt={movie.title}
+          className="absolute top-0 left-0 w-full h-full lg:h-[70vh] object-cover"
+        />
+      )}
+      <div className="absolute top-0 left-0 w-full h-full lg:h-[70vh] bg-black opacity-80" />
 
-        <div className='relative z-10 flex flex-col lg:flex-row items-center h-full lg:h-[70vh] gap-14 justify-between px-10 py-16'>
-            {/* Poster Image Section */}
-            <div className="lg:w-1/3 mb-8 lg:mb-0">
-                <img
-                    src={posterUrl}
-                    alt={movie.title}
-                    className="rounded-md h-auto max-h-[400px] w-full object-cover"
-                />
-            </div>
+      <div className="relative z-10 flex flex-col lg:flex-row items-center h-full lg:h-[70vh] gap-14 justify-between px-4 lg:px-10 py-16">
+        <Image
+          src={posterUrl}
+          alt={movie.title}
+          width="500"
+          height="500"
+          objectFit="cover"
+          className="rounded-md w-full lg:mt-36 lg:w-[400px] mb-8 lg:mb-0 h-[500px]"
+        />
 
-                
-            <div className="lg:w-2/3 text-white">
-                <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold whitespace-nowrap">{movie.title}</h1>
-                <p className="mt-4">{movie.overview}</p>
-                <p className="mt-2">Release Date: {movie.release_date}</p>
-                <Button className='px-4 py-2 bg-red-700 rounded-lg mt-6 text-white text-lg'  text='Book Ticket'/>
-            </div>
+        <div className="lg:w-2/3 text-gray-200">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold whitespace-nowrap">
+            {movie.title}
+          </h1>
+          <p className="mt-4 text-gray-200">{movie.overview}</p>
+          <p className="mt-2 text-gray-400">Release Date: {movie.release_date}</p>
+          <Button className="px-4 py-2 bg-red-700 rounded-lg mt-6 text-gray-100 text-lg" text="Book Ticket" />
         </div>
+      </div>
+      <MovieAllDetails />
+      
     </div>
   );
 };

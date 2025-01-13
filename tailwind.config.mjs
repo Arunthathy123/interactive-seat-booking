@@ -9,6 +9,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      spacing: {
+        '18': '4.5rem',
+      }
     },
   },
   plugins: [],
