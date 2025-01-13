@@ -206,8 +206,8 @@ const Reviews = ({ movieId }) => {
       )}
 
       {activeReview && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full relative">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full relative  h-3/4 overflow-y-auto">
             <button
               onClick={closeReview}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
@@ -215,10 +215,13 @@ const Reviews = ({ movieId }) => {
               &times;
             </button>
             <h3 className="text-xl font-bold text-gray-200 mb-4">{activeReview.author}</h3>
-            <p className="text-gray-300">{activeReview.content}</p>
+            <div className="scrollbar-custom w-full  h-5/6 overflow-y-auto p-4 bg-transparent rounded-lg">
+              <p className="text-gray-300">{activeReview.content}</p>
+            </div>
           </div>
         </div>
       )}
+
     </div>
   );
 };
