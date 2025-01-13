@@ -1,14 +1,13 @@
-"use client";
-import Button from '@/componets/Button';
-import { useParams } from 'next/navigation';
+"use client"
+import { useParams, useRouter } from 'next/navigation'; 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Button from '@/componets/Button';  
 import MovieAllDetails from '@/componets/MovieAllDetails';
-// import TheaterList from '@/componets/TheaterList';
-
 
 const MovieDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); 
+  const router = useRouter(); 
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -39,6 +38,11 @@ const MovieDetails = () => {
   const bannerUrl = movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '';
   const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : '';
 
+  const handleBookTicket = () => {
+    router.push(`/book-ticket/${id}?title=${encodeURIComponent(movie.title)}`);
+  };
+  
+
   return (
     <div className="relative">
       {bannerUrl && (
@@ -66,11 +70,14 @@ const MovieDetails = () => {
           </h1>
           <p className="mt-4 text-gray-200">{movie.overview}</p>
           <p className="mt-2 text-gray-400">Release Date: {movie.release_date}</p>
-          <Button className="px-4 py-2 bg-red-700 rounded-lg mt-6 text-gray-100 text-lg" text="Book Ticket" />
+          <Button
+            onClick={handleBookTicket}  
+            className="px-4 py-2 bg-red-700 rounded-lg mt-6 text-gray-100 text-lg"
+            text="Book Ticket"
+          />
         </div>
       </div>
       <MovieAllDetails />
-      
     </div>
   );
 };

@@ -13,7 +13,7 @@ function Header() {
     };
 
     useEffect(() => {
-        setOpenPopup(false);
+        setOpenPopup(true);
     }, []);
 
     const openLocationPopup = () => {

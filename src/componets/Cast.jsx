@@ -23,7 +23,7 @@ const Cast = ({ movieId }) => {
     fetchCast();
   }, [movieId]);
 
-  // Slick settings
+
   const settings = {
     dots: false,
     infinite: true,
