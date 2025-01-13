@@ -66,7 +66,7 @@ const SeatSelection = () => {
       2: { name: "Gold", price: pricingTiers.Gold },
       4: { name: "Platinum", price: pricingTiers.Platinum },
     };
-
+  
     for (let row = 0; row < rows; row++) {
       if (tierLabels[row]) {
         const { name, price } = tierLabels[row];
@@ -79,18 +79,18 @@ const SeatSelection = () => {
           </div>
         );
       }
-
+  
       const rowSeats = [];
       for (let seat = 1; seat <= seatsPerRow; seat++) {
         const seatId = `${String.fromCharCode(65 + row)}${seat}`;
         const isSelected = selectedSeats.includes(seatId);
-
+  
         let seatClass = "bg-gray-300";
         if (row >= 2 && row <= 3) seatClass = "bg-yellow-300";
         if (row >= 4) seatClass = "bg-red-300";
-
+  
         if (isSelected) seatClass += " border-4 border-green-700";
-
+  
         rowSeats.push(
           <Button
             key={seatId}
@@ -98,8 +98,6 @@ const SeatSelection = () => {
             onClick={() => handleSeatClick(seatId)}
             text={seatId}
           />
-            
-          
         );
       }
       grid.unshift(
@@ -108,17 +106,19 @@ const SeatSelection = () => {
         </div>
       );
     }
-
-    grid.unshift(
-      <div key="screen" className="flex justify-center mt-6 md:mt-0 mb-4">
-        <div className="w-1/2 text-gray-200 h-10 bg-gradient-to-t from-gray-600 to-gray-900 rounded-t-full shadow-inner flex items-center justify-center">
-          Screen
+  
+    // Add the screen at the bottom of the grid
+    grid.push(
+      <div key="screen" className="flex justify-center mt-6  md:mt-14 mb-4 ">
+        <div className="w-full lg:w-2/4 text-gray-200 h-10 bg-gradient-to-t from-gray-600 to-gray-900 rounded-t-full shadow-md flex items-center justify-center transform rotate-180">
+          {/* <span className="text-sm font-semibold">Screen</span> */}
         </div>
       </div>
     );
-
+  
     return grid;
   };
+  
 
   return (
     <div className="p-8">
