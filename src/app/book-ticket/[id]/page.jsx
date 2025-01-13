@@ -88,12 +88,13 @@ const BookTicket = () => {
           {filteredTheaterDetails.map((movie) => (
             <li key={movie.movieId}>
               <div className="flex flex-col gap-4">
-                <button
+                <Button
                   onClick={() => handleMovieSelect(movie.movieId)}
                   className="text-blue-600 underline"
-                >
-                  {movie.name}
-                </button>
+                  text={movie.name}
+                />
+                  
+                
                 {movie.theaters.map((theater, index) => (
                   <div
                     key={index}
@@ -106,13 +107,14 @@ const BookTicket = () => {
                     {theater.showtimes.length > 0 ? (
                       <div className="flex flex-wrap gap-4 ">
                         {theater.showtimes.map((showtime, showtimeIdx) => (
-                          <button
+                          <Button
                             key={showtimeIdx}
                             onClick={() => handleShowtimeClick(showtime)}
                             className="border border-teal-600 text-teal-600 px-4 py-2 rounded-lg"
-                          >
-                            {showtime}
-                          </button>
+                            text={showtime}
+                          />
+                            
+                          
                         ))}
                       </div>
                     ) : (

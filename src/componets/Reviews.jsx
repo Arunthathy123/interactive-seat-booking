@@ -120,12 +120,13 @@ const Reviews = ({ movieId }) => {
             </div>
           </div>
           <p className="text-gray-400">{reviews[0].content.substring(0, 150)}...</p>
-          <button
+          <Button
             onClick={() => openReview(reviews[0])}
             className="text-blue-500 hover:text-blue-700 mt-2"
-          >
-            Read More
-          </button>
+            text="Read More"
+          />
+            
+          
         </div>
       ) : (
         <div>
@@ -156,12 +157,13 @@ const Reviews = ({ movieId }) => {
                     </div>
                   </div>
                   <p className="text-gray-400">{review.content.substring(0, 150)}...</p>
-                  <button
+                  <Button
                     onClick={() => openReview(review)}
                     className="text-blue-500 hover:text-blue-700 mt-2"
-                  >
-                    Read More
-                  </button>
+                    text="Read More"
+                  />
+                    
+                  
                 </div>
               ))}
             </div>
@@ -192,12 +194,13 @@ const Reviews = ({ movieId }) => {
                     </div>
                   </div>
                   <p className="text-gray-400">{review.content.substring(0, 150)}...</p>
-                  <button
+                  <Button 
                     onClick={() => openReview(review)}
                     className="text-blue-500 hover:text-blue-700 mt-2"
-                  >
-                    Read More
-                  </button>
+                    text="Read More"
+                  />
+                    
+                  
                 </div>
               ))}
             </Slider>
@@ -208,12 +211,13 @@ const Reviews = ({ movieId }) => {
       {activeReview && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2">
           <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full relative  h-3/4 overflow-y-auto">
-            <button
+            <Button
               onClick={closeReview}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
-            >
-              &times;
-            </button>
+              text="X"
+            />
+              
+            
             <h3 className="text-xl font-bold text-gray-200 mb-4">{activeReview.author}</h3>
             <div className="scrollbar-custom w-full  h-5/6 overflow-y-auto p-4 bg-transparent rounded-lg">
               <p className="text-gray-300">{activeReview.content}</p>

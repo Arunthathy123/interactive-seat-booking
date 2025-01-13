@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import SearchInput from "./SearchInput";
 import LocationPopup from "./LocationPopup";
+import Button from "./Button";
 
 function Header() {
     const [selectedLocation, setSelectedLocation] = useState(null);
@@ -32,7 +33,7 @@ function Header() {
                     {selectedLocation ? (
                         <span onClick={openLocationPopup} style={{ cursor: 'pointer' }}>Location: {selectedLocation}</span>
                     ) : (
-                        <button onClick={openLocationPopup}>Select Location</button>
+                        <Button onClick={openLocationPopup} text="Select Location"/>
                     )}
                 </div>
                 <div>
